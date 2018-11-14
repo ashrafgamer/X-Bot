@@ -46,7 +46,7 @@ client.on('message', message => {
 
 •========================================• 
                        •اوامر عامة•
-•========================================• 
+•========================================•
 🔱 %mcskin {nameskin} => يضهر لك سكن حق ماين كرافت
 🔱 %bot => يضهر لك معلومات بوت
 🔱 %server => يضهر لك معلومات سيرفر
@@ -55,7 +55,7 @@ client.on('message', message => {
 🔱 %avatar => حتة تضهر لك صورا خاصة بحسابك ديسكورد
 🔱 %say {masseg} => يعيد كلام التي كتبته وبشكل احلة و اجمل 
 ═══════════════════════════════════
-:heart: شكرا لك لستعمال بوت X-Bot :heart:
+:heart: شكرا لك لستعمال بوت X-Bot :heart
 
 --(Bot By @50%.#0063)-- :heart:🔱
 
@@ -64,7 +64,7 @@ client.on('message', message => {
 `);
 
     }
-});
+})
 
 
 client.on('ready', () => {
@@ -182,7 +182,7 @@ client.on('roleCreate', role => {
         var userID = logs.entries.first().executor.id;
         var userAvatar = logs.entries.first().executor.avatarURL;
  
-        let roleCreate = new Discord.RichEmbed()
+        let roleCreate = new Discord.RichEmbed(
         .setTitle('**[ROLE CREATE]**')
         .setThumbnail(userAvatar)
         .setDescription(`**\n**:white_check_mark: Successfully \`\`CREATE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`)
@@ -192,7 +192,7 @@ client.on('roleCreate', role => {
  
         logChannel.send(roleCreate);
     })
-});
+})
 client.on('roleDelete', role => {
  
     if(!role.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
@@ -201,7 +201,7 @@ client.on('roleDelete', role => {
     var logChannel = role.guild.channels.find(c => c.name === 'log');
     if(!logChannel) return;
  
-    role.guild.fetchAuditLogs().then(logs => {
+    role.guild.fetchAuditLogs().then(logs => 
         var userID = logs.entries.first().executor.id;
         var userAvatar = logs.entries.first().executor.avatarURL;
  
@@ -210,7 +210,7 @@ client.on('roleDelete', role => {
         .setThumbnail(userAvatar)
         .setDescription(`**\n**:white_check_mark: Successfully \`\`DELETE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`)
         .setColor('RED')
-        .setTimestamp()
+        .setTimestamp(
         .setFooter(role.guild.name, role.guild.iconURL)
  
         logChannel.send(roleDelete);
@@ -219,7 +219,7 @@ client.on('roleDelete', role => {
 client.on('roleUpdate', (oldRole, newRole) => {
  
     if(!oldRole.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
-    if(!oldRole.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
+    if(!oldRole.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return
  
     var logChannel = oldRole.guild.channels.find(c => c.name === 'log');
     if(!logChannel) return;
@@ -228,7 +228,7 @@ client.on('roleUpdate', (oldRole, newRole) => {
         var userID = logs.entries.first().executor.id;
         var userAvatar = logs.entries.first().executor.avatarURL;
  
-        if(oldRole.name !== newRole.name) {
+        if(oldRole.name !== newRole.name) {l
             let roleUpdateName = new Discord.RichEmbed()
             .setTitle('**[ROLE NAME UPDATE]**')
             .setThumbnail(userAvatar)
@@ -256,7 +256,15 @@ client.on('roleUpdate', (oldRole, newRole) => {
             .setColor('BLUE')
             .setDescription(`**\n**:white_check_mark: Successfully \`\`EDITED\`\` **${oldRole.name}** Role Color.\n\n**Old Color:** ${oldColor}\n**New Color:** ${newColor}\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`)
             .setTimestamp()
-            .setFooter(oldRole.guild.name, oldRole.guild.iconURL)
+            .setFooter(const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = ("%")
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+
+client.login('token');, oldRole.guild.iconURL
  
             logChannel.send(roleUpdateColor);
         }
@@ -266,7 +274,7 @@ client.on('roleUpdate', (oldRole, newRole) => {
 client.on('channelCreate', channel => {
  
     if(!channel.guild) return;
-    if(!channel.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
+    if(!channel.guild.member(client.user).hasPermission('EMBED_LINKS')) return
     if(!channel.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
     var logChannel = channel.guild.channels.find(c => c.name === 'log');
@@ -275,7 +283,7 @@ client.on('channelCreate', channel => {
     if(channel.type === 'text') {
         var roomType = 'Text';
     }else
-    if(channel.type === 'voice') {
+    if(channel.type === 'voice') 
         var roomType = 'Voice';
     }else
     if(channel.type === 'category') {
@@ -285,7 +293,7 @@ client.on('channelCreate', channel => {
     channel.guild.fetchAuditLogs().then(logs => {
         var userID = logs.entries.first().executor.id;
         var userAvatar = logs.entries.first().executor.avatarURL;
- 
+
         let channelCreate = new Discord.RichEmbed()
         .setTitle('**[CHANNEL CREATE]**')
         .setThumbnail(userAvatar)
@@ -294,7 +302,7 @@ client.on('channelCreate', channel => {
         .setTimestamp()
         .setFooter(channel.guild.name, channel.guild.iconURL)
  
-        logChannel.send(channelCreate);
+        logChannel.send(channelCreate)
     })
 });
 client.on('channelDelete', channel => {
@@ -303,7 +311,7 @@ client.on('channelDelete', channel => {
     if(!channel.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
     var logChannel = channel.guild.channels.find(c => c.name === 'log');
-    if(!logChannel) return;
+    if(!logChannel) return
  
     if(channel.type === 'text') {
         var roomType = 'Text';
@@ -312,7 +320,7 @@ client.on('channelDelete', channel => {
         var roomType = 'Voice';
     }else
     if(channel.type === 'category') {
-        var roomType = 'Category';
+        var roomType = 'Category'
     }
  
     channel.guild.fetchAuditLogs().then(logs => {
@@ -321,7 +329,7 @@ client.on('channelDelete', channel => {
  
         let channelDelete = new Discord.RichEmbed()
         .setTitle('**[CHANNEL DELETE]**')
-        .setThumbnail(userAvatar)
+        .setThumbnail(userAvatar
         .setDescription(`**\n**:white_check_mark: Successfully \`\`DELETE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` (ID: ${channel.id})\n**By:** <@${userID}> (ID: ${userID})`)
         .setColor('RED')
         .setTimestamp()
@@ -331,7 +339,7 @@ client.on('channelDelete', channel => {
     })
 });
 client.on('channelUpdate', (oldChannel, newChannel) => {
-    if(!oldChannel.guild) return;
+    if(!oldChannel.guild) return
  
     var logChannel = oldChannel.guild.channels.find(c => c.name === 'log');
     if(!logChannel) return;
@@ -340,7 +348,7 @@ client.on('channelUpdate', (oldChannel, newChannel) => {
         var channelType = 'Text';
     }else
     if(oldChannel.type === 'voice') {
-        var channelType = 'Voice';
+        var channelType = 'Voice'
     }else
     if(oldChannel.type === 'category') {
         var channelType = 'Category';
@@ -349,7 +357,7 @@ client.on('channelUpdate', (oldChannel, newChannel) => {
     oldChannel.guild.fetchAuditLogs().then(logs => {
         var userID = logs.entries.first().executor.id;
         var userAvatar = logs.entries.first().executor.avatarURL;
- 
+
         if(oldChannel.name !== newChannel.name) {
             let newName = new Discord.RichEmbed()
             .setTitle('**[CHANNEL EDIT]**')
@@ -358,7 +366,7 @@ client.on('channelUpdate', (oldChannel, newChannel) => {
             .setDescription(`**\n**:wrench: Successfully Edited **${channelType}** Channel Name\n\n**Old Name:** \`\`${oldChannel.name}\`\`\n**New Name:** \`\`${newChannel.name}\`\`\n**Channel ID:** ${oldChannel.id}\n**By:** <@${userID}> (ID: ${userID})`)
             .setTimestamp()
             .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL)
- 
+
             logChannel.send(newName);
         }
         if(oldChannel.topic !== newChannel.topic) {
@@ -367,7 +375,7 @@ client.on('channelUpdate', (oldChannel, newChannel) => {
             .setThumbnail(userAvatar)
             .setColor('BLUE')
             .setDescription(`**\n**:wrench: Successfully Edited **${channelType}** Channel Topic\n\n**Old Topic:**\n\`\`\`${oldChannel.topic || 'NULL'}\`\`\`\n**New Topic:**\n\`\`\`${newChannel.topic || 'NULL'}\`\`\`\n**Channel:** ${oldChannel} (ID: ${oldChannel.id})\n**By:** <@${userID}> (ID: ${userID})`)
-            .setTimestamp()
+            .setTimestamp(
             .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL)
  
             logChannel.send(newTopic);
@@ -377,7 +385,7 @@ client.on('channelUpdate', (oldChannel, newChannel) => {
  
 client.on('guildBanAdd', (guild, user) => {
  
-    if(!guild.member(client.user).hasPermission('EMBED_LINKS')) return;
+    if(!guild.member(client.user).hasPermission('EMBED_LINKS')) return
     if(!guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
     var logChannel = guild.channels.find(c => c.name === 'log');
@@ -386,7 +394,7 @@ client.on('guildBanAdd', (guild, user) => {
     guild.fetchAuditLogs().then(logs => {
         var userID = logs.entries.first().executor.id;
         var userAvatar = logs.entries.first().executor.avatarURL;
- 
+
         if(userID === client.user.id) return;
  
         let banInfo = new Discord.RichEmbed()
@@ -395,7 +403,7 @@ client.on('guildBanAdd', (guild, user) => {
         .setColor('DARK_RED')
         .setDescription(`**\n**:airplane: Successfully \`\`BANNED\`\` **${user.username}** From the server!\n\n**User:** <@${user.id}> (ID: ${user.id})\n**By:** <@${userID}> (ID: ${userID})`)
         .setTimestamp()
-        .setFooter(guild.name, guild.iconURL)
+        .setFooter(guild.name, guild.iconURL
  
         logChannel.send(banInfo);
     })
@@ -405,7 +413,7 @@ client.on('guildBanRemove', (guild, user) => {
     if(!guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
     var logChannel = guild.channels.find(c => c.name === 'log');
-    if(!logChannel) return;
+    if(!logChannel) return
  
     guild.fetchAuditLogs().then(logs => {
         var userID = logs.entries.first().executor.id;
@@ -414,7 +422,7 @@ client.on('guildBanRemove', (guild, user) => {
         if(userID === client.user.id) return;
  
         let unBanInfo = new Discord.RichEmbed()
-        .setTitle('**[UNBANNED]**')
+        .setTitle('**[UNBANNED]**'
         .setThumbnail(userAvatar)
         .setColor('GREEN')
         .setDescription(`**\n**:unlock: Successfully \`\`UNBANNED\`\` **${user.username}** From the server\n\n**User:** <@${user.id}> (ID: ${user.id})\n**By:** <@${userID}> (ID: ${userID})`)
@@ -424,7 +432,7 @@ client.on('guildBanRemove', (guild, user) => {
         logChannel.send(unBanInfo);
     })
 });
-client.on('guildUpdate', (oldGuild, newGuild) => {
+client.on('guildUpdate', (oldGuild, newGuild) => {l
  
     if(!oldGuild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!oldGuild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
@@ -452,7 +460,7 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
             .setTitle('**[CHANGE GUILD REGION]**')
             .setThumbnail(userAvatar)
             .setColor('BLUE')
-            .setDescription(`**\n**:white_check_mark: Successfully \`\`EDITED\`\` The guild region.\n\n**Old Region:** ${oldGuild.region}\n**New Region:** ${newGuild.region}\n**By:** <@${userID}> (ID: ${userID})`)
+            .setDescription(`**\n**:white_check_mark: Successfully \`\`EDITED\`\` The guild region.\n\n**Old Region:** ${oldGuild.region}\n**New Region:** ${newGuild.region}\n**By:** <@${userID}> (ID: ${userID})`
             .setTimestamp()
             .setFooter(oldGuild.name, oldGuild.iconURL)
  
@@ -463,14 +471,22 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
                 var oldVerLvl = 'Very Easy';
             }else
             if(oldGuild.verificationLevel === 1) {
-                var oldVerLvl = 'Easy';
+                var oldVerLvl = 'Easy';const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = ("%")
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+
+client.login('token');
             }else
             if(oldGuild.verificationLevel === 2) {
                 var oldVerLvl = 'Medium';
             }else
             if(oldGuild.verificationLevel === 3) {
                 var oldVerLvl = 'Hard';
-            }else
+            }els
             if(oldGuild.verificationLevel === 4) {
                 var oldVerLvl = 'Very Hard';
             }
@@ -479,7 +495,7 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
                 var newVerLvl = 'Very Easy';
             }else
             if(newGuild.verificationLevel === 1) {
-                var newVerLvl = 'Easy';
+                var newVerLvl = 'Easy'
             }else
             if(newGuild.verificationLevel === 2) {
                 var newVerLvl = 'Medium';
@@ -488,7 +504,7 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
                 var newVerLvl = 'Hard';
             }else
             if(newGuild.verificationLevel === 4) {
-                var newVerLvl = 'Very Hard';
+                var newVerLvl = 'Very Hard'
             }
  
             let verLog = new Discord.RichEmbed()
@@ -497,7 +513,7 @@ client.on('guildUpdate', (oldGuild, newGuild) => {
             .setColor('BLUE')
             .setDescription(`**\n**:white_check_mark: Successfully \`\`EDITED\`\` Guild Verification level.\n\n**Old Verification Level:** ${oldVerLvl}\n**New Verification Level:** ${newVerLvl}\n**By:** <@${userID}> (ID: ${userID})`)
             .setTimestamp()
-            .setFooter(oldGuild.name, oldGuild.iconURL)
+            .setFooter(oldGuild.name, oldGuild.iconURL
  
             logChannel.send(verLog);
         }
@@ -507,7 +523,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
     if(!oldMember.guild) return;
  
     var logChannel = oldMember.guild.channels.find(c => c.name === 'log');
-    if(!logChannel) return;
+    if(!logChannel) return
  
     oldMember.guild.fetchAuditLogs().then(logs => {
         var userID = logs.entries.first().executor.id;
@@ -960,7 +976,7 @@ client.on('message', async message =>{
       if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
       if(mention.id === message.author.id) return message.reply('**لا يمكنك اعطاء ميوت  لنفسك**').then(m => m.delete(5000));
    
-      if(mention.highestRole.position >= message.guild.member(message.author).highestRole.positon) return message.reply('**لا يمكنك اعطاء لميوت شخص رتبته اعلى منك**').then(m => m.delete(5000));
+      if(mention.highestRole.position > message.guild.member(message.author).highestRole.positon) return message.reply('**لا يمكنك اعطاء لميوت شخص رتبته اعلى منك**').then(m => m.delete(5000));
       if(tomute.hasPermission("MANAGE_MESSAGES"))return;
       let muterole = message.guild.roles.find(`name`, "Muted");
       //start of create role
@@ -992,7 +1008,7 @@ client.on('message', async message =>{
         tomute.removeRole(muterole.id);
         message.channel.send(`<@${tomute.id}> **انقضى الوقت وتم فك الميوت عن الشخص**:white_check_mark: `);
       }, ms(mutetime));
-   
+  
    
     //end of module
     }
@@ -1065,4 +1081,4 @@ message.channel.send(`صورا حقتك ${user} رابط : ${user.avatarURL}`);
 
 
 
-client.login('Token');
+client.login('Token'
