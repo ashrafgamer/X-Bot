@@ -1065,4 +1065,4 @@ message.channel.send(`صورا حقتك ${user} رابط : ${user.avatarURL}`);
 
 
 
-client.login('NTExMTg5MjEwNTQ4NDA0MjY0.DsnRnw.xcKSaunLLTIm2xCdp5OXkl-2e4o');
+client.login('Token');
