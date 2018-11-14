@@ -10,4 +10,4 @@ client.on('ready', () => {
 
 
 
-client.login('token');
+client.login('ninhWGq_hMr9KtWl5vuEvRbgGUg4PRgn');
